@@ -5,4 +5,4 @@
 1. 增加的内容：  
     * 点击事件
 1. 实现效果：
-[](https://github.com/ehanxuan/Android-ItemTouchHelper-Demo/blob/master/description/t03gzsKOT49Hehanxuan08302017141629.gif)
+![](https://github.com/ehanxuan/Android-ItemTouchHelper-Demo/blob/master/description/t03gzsKOT49Hehanxuan08302017141629.gif)
