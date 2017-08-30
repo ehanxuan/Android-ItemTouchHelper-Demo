@@ -26,6 +26,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import co.paulburke.android.itemtouchhelperdemo.helper.OnRecyclerItemClickListener;
 import co.paulburke.android.itemtouchhelperdemo.helper.OnStartDragListener;
@@ -62,7 +63,7 @@ public class RecyclerListFragment extends Fragment implements OnStartDragListene
             @Override
             public void onItemClick(RecyclerView.ViewHolder vh) {
                 Log.d("ehx", "onItemClick vh" + vh.getLayoutPosition());
-
+                Toast.makeText(RecyclerListFragment.this.getActivity(), "onItemClick at " + vh.getLayoutPosition(), Toast.LENGTH_LONG).show();
             }
         });
 

@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,11 +46,14 @@ import co.paulburke.android.itemtouchhelperdemo.helper.OnStartDragListener;
 public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapter.ItemViewHolder>
         implements ItemTouchHelperAdapter {
 
+    private Context mContext;
+
     private final List<String> mItems = new ArrayList<>();
 
     private final OnStartDragListener mDragStartListener;
 
     public RecyclerListAdapter(Context context, OnStartDragListener dragStartListener) {
+        mContext = context;
         mDragStartListener = dragStartListener;
         mItems.addAll(Arrays.asList(context.getResources().getStringArray(R.array.dummy_items)));
     }
@@ -81,12 +85,17 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
     public void onItemDismiss(int position) {
         mItems.remove(position);
         notifyItemRemoved(position);
+
+        Toast.makeText(mContext, "delect item at " + position, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
         Collections.swap(mItems, fromPosition, toPosition);
         notifyItemMoved(fromPosition, toPosition);
+
+        Toast.makeText(mContext, "move item from " + fromPosition + " to " + toPosition, Toast.LENGTH_LONG).show();
+
         return true;
     }
 
